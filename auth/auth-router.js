@@ -16,7 +16,9 @@ router.post("/register", (req, res) => {
     Users.add(user)
       .then(user => {
         const token = generateToken(req.body);
-        res.status(201).json({ user, token });
+        const type = req.body.user_type;
+        // console.log(req.body);
+        res.status(201).json({ user, token, type });
       })
       .catch(err => {
         console.log(err);
@@ -42,10 +44,12 @@ router.post("/login", (req, res) => {
           const token = generateToken(user);
           // console.log(user.user_type)
           const type = user.user_type;
+          const id = user.id;
+          //   console.log(user.id)
 
           res
             .status(200)
-            .json({ message: `Welcome ${user.username}!`, token, type });
+            .json({ message: `Welcome ${user.username}!`, id, token, type });
         } else {
           res.status(401).json({ message: "Invalid credentials" });
         }
