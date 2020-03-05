@@ -2,17 +2,17 @@ const request = require('supertest');
 
 const server = require('../api/server.js');
 
-describe('bids router', function() {
+describe('payment router', function() {
     it('should run the tests', function() {
         expect(true).toBe(true);
     })
 
-    describe('GET /', function() {
-        it('should return a 400 error', function() {
+    describe('POST /', function() {
+        it('should return a 404 error', function() {
             return request(server)
-            .get('/api/auctions')
+            .post('/api/payment')
             .then(res => {
-                expect(res.status).toBe(400)
+                expect(res.status).toBe(404)
             })
         })
     })
