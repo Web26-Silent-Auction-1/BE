@@ -11,7 +11,6 @@ module.exports = {
 function find() {
   return db("auctions")
     .join("users", "auctions.user_id", "users.id")
-    // .join("bids", "auctions.id", "bids.auction_id")
     .select(
       "auctions.id",
       "auctions.name",
@@ -19,8 +18,7 @@ function find() {
       "auctions.image",
       "auctions.description",
       "auctions.starting_price",
-      "auctions.deadline",
-    //   "bids.amount"
+      "auctions.deadline"
     );
 }
 

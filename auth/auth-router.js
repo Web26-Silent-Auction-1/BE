@@ -17,7 +17,7 @@ router.post("/register", (req, res) => {
       .then(user => {
         const token = generateToken(req.body);
         const type = req.body.user_type;
-        // console.log(req.body);
+
         res.status(201).json({ user, token, type });
       })
       .catch(err => {
@@ -42,10 +42,8 @@ router.post("/login", (req, res) => {
       .then(user => {
         if (user && bcrypt.compareSync(password, user.password)) {
           const token = generateToken(user);
-          // console.log(user.user_type)
           const type = user.user_type;
           const id = user.id;
-          //   console.log(user.id)
 
           res
             .status(200)

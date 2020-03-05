@@ -9,13 +9,13 @@ module.exports = {
 function find() {
   return db("bids")
     .join("users", "bids.user_id", "users.id")
-    .join('auctions', 'bids.auction_id', 'auctions.id')
+    .join("auctions", "bids.auction_id", "auctions.id")
     .select(
       "bids.id",
       "bids.user_id",
       "users.username as bidder",
       "bids.auction_id",
-      'auctions.name as auction_name',
+      "auctions.name as auction_name",
       "bids.amount"
     );
 }
@@ -25,5 +25,5 @@ function add(bid) {
 }
 
 function findBy(auction_id) {
-    return db('bids').where({ auction_id })
+  return db("bids").where({ auction_id });
 }

@@ -18,12 +18,6 @@ const requireCredentials = (req, res, next) => {
   }
 };
 
-// const checkUserType = (req, res, next) => {
-//   const { type } = req.headers;
-
-//   console.log(req.decodedToken);
-// };
-
 const requireSeller = (req, res, next) => {
   const type = req.decodedToken.user_type;
   console.log(type);
