@@ -16,6 +16,7 @@ Hosted at https://bw-silent-auction-1.herokuapp.com/
 | GET    | /api/bids          | yes         | returns all bids                                                           |
 | GET    | /api/bids/:id      | yes         | returns all bids for the auction matching the id                           |
 | POST   | /api/bids/:id      | yes, bidder | adds a new bid the auction matching the id                                 |
+| POST   | /api/payments      | no          | submits payment information                                                |
 
 
 #### Users Schema
