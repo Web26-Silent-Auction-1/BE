@@ -52,7 +52,8 @@ router.post("/", requireSeller, checkFields, (req, res) => {
 
   Auctions.add(auction)
     .then(auction => {
-      res.status(201).json(auction);
+      console.log(req.body)
+      res.status(201).json({auction, body: req.body});
     })
     .catch(err => {
       console.log(err);
